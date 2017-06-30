@@ -25,4 +25,5 @@ echo "OUTDIR=$3" >> /tmp/argfile.$PBS_JOBID
 
 flock ~/lockfile_freesurfer -c $scr_cortical
 flock ~/lockfile_freesurfer -c $scr_subcortical
+
 rm /tmp/argfile.$PBS_JOBID

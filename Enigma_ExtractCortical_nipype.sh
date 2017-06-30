@@ -28,25 +28,26 @@ function remove_subject_from_outputs {
   sed -i /$SUBJECT_ID/d $THICKFILE
 }
 
-if [ $# -eq 0]; then
+if [ $# -eq 0 ]; then
   ENVFILE=/tmp/argfile.$PBS_JOBID
 else
   ENVFILE="$1"
+fi
 
-if [ -e /tmp/argfile.$PBS_JOBID ]; then
-  source /tmp/argfile.$PBS_JOBID
+if [ -e $ENVFILE ]; then
+  source $ENVFILE
 else
   usage
 fi
 
 # Check we got the required values
-if [ -e $SUBJECT_DIR]; then
+if [ -z $SUBJECTS_DIR ]; then
   usage
 fi
-if [ -e $SUBJECT_ID]; then
+if [ -z $SUBJECT_ID ]; then
   usage
 fi
-if [ -e $OUTPATH]; then
+if [ -z $OUTDIR ]; then
   usage
 fi
 
@@ -54,11 +55,11 @@ SURFFILE=${OUTDIR}/CorticalMeasuresENIGMA_SurfAvg.csv
 THICKFILE=${OUTDIR}/CorticalMeasuresENIGMA_ThickAvg.csv
 SUBJECT_DIR=${SUBJECTS_DIR}/${SUBJECT_ID}
 
-if [ ! -e $SURFFILE]; then
+if [ ! -e $SURFFILE ]; then
   create_outfile_surface $SURFFILE
 fi
 
-if [ ! -e $THICKFILE]; then
+if [ ! -e $THICKFILE ]; then
   create_outfile_surface $THICKFILE
 fi
 
