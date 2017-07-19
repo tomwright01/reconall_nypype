@@ -199,7 +199,7 @@ def main():
 
     templates = {'T1': '{dm_subject_id}/{dm_subject_id}_??_T1_??*.nii.gz'}
     if 'T2' in scan_types:
-        templates = {'T2': '{dm_subject_id}/{dm_subject_id}_??_T2_??*.nii.gz'}
+        templates['T2'] = '{dm_subject_id}/{dm_subject_id}_??_T2_??*.nii.gz'
     if 'FLAIR' in scan_types:
         logger.debug('FLAIR processing not yet implemented')
         #templates = {'T2': '{dm_subject_id}/{dm_subject_id}_??_FLAIR _??*.nii.gz'}

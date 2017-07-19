@@ -44,9 +44,6 @@ fi
 if [ -z $SUBJECTS_DIR ]; then
   usage
 fi
-if [ -z $SUBJECT_ID ]; then
-  usage
-fi
 if [ -z $OUTDIR ]; then
   usage
 fi
@@ -64,6 +61,7 @@ if [ ! -e $THICKFILE ]; then
 fi
 
 remove_subject_from_outputs
+
 printf "%s,"  "${SUBJECT_DIR}" >> ${THICKFILE}
 printf "%s,"  "${SUBJECT_DIR}" >> ${SURFFILE}
 
