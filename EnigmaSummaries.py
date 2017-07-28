@@ -54,6 +54,6 @@ class EnigmaSummaryTask(CommandLine):
         outputs = self.output_spec().get()
         out_path = os.path.abspath(self.inputs.output_path)
         outputs['thickness_file'] = os.path.join(out_path, 'CorticalMeasuresENIGMA_ThickAvg.csv')
-        outputs['surface_file'] = os.path.join(out_path, 'CorticalMeasuresENIGMA_SurfAv        g.csv')
+        outputs['surface_file'] = os.path.join(out_path, 'CorticalMeasuresENIGMA_SurfAvg.csv')
         outputs['surface_file'] = os.path.join(out_path, 'LandRvolumes.csv')
         return(outputs)
